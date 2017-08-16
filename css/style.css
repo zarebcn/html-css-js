@@ -1,0 +1,30 @@
+
+/* some attributes like font-family or color propagate to children elements */
+body {
+  font-family: Verdana, sans-serif;
+}
+
+h1 {
+  color: #394d5c;
+}
+
+/* style affects to all input and button elements */
+input, button {
+  font-size: 16px;
+}
+
+.section {
+  padding: 20px;
+  background-color: rgb(219, 227, 232); /* color in RGB format */
+  margin-bottom: 10px;
+}
+
+/* just affect <p> elements that are direct children of elements with class "section" */
+.section > p {
+  color: #446a85; /* color in hexadecimal RGB format (8 bits = 2 hex digits for each color) */
+}
+
+/* affects all <p> elements, but selector above is more specific, so it has precedence */
+p {
+  color: gray;
+}
