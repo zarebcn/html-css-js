@@ -8,7 +8,8 @@ setupVanillaCode();
 setupJQueryCode();
 setupJQueryCodeInlined();
 setupJQueryCodeImproved();
-keypressVanilla();
+onKeyUpVanilla();
+onKeyUpJQuery();
 
 
 // --- Functions --- //
@@ -26,16 +27,16 @@ function setupVanillaCode() {
   };
 }
 
-function keypressVanilla() {
+function onKeyUpVanilla() {
 
-    let input = document.querySelector(".keypress input");
+    let input = document.querySelector(".onkeyupjs input");
+    let result = document.querySelector(".onkeyupjs .result");
 
-    input.onkeypress = function() {
+    input.onkeyup = function() {
 
         let text = input.value;
-        let result = document.querySelector(".keypress .result");
         result.textContent = text;
-    }
+    };
 }
 
 /** jQuery example (equivalent to the vanilla example above) */
@@ -49,6 +50,18 @@ function setupJQueryCode() {
     result.text("You searched for: " + searchTerm);
     button.hide();
   });
+}
+
+function onKeyUpJQuery() {
+
+    let input = $(".onkeyupjq input");
+    let result = $(".onkeyupjq .result");
+
+    input.keyup(function() {
+
+        let text = input.val();
+        result.text(text);
+    });
 }
 
 // With jQuery it's easy to inline variables and end up with this equivalent code:
